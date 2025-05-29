@@ -179,6 +179,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className={errors.name ? 'error' : ''}
+                  autocomplete="name"
                 />
                 {errors.name && <span className="error-message">{errors.name}</span>}
               </div>
@@ -192,6 +193,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className={errors.email ? 'error' : ''}
+                  autocomplete="email"
                 />
                 {errors.email && <span className="error-message">{errors.email}</span>}
               </div>

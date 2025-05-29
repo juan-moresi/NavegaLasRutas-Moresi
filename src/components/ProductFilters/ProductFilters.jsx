@@ -36,10 +36,11 @@ const ProductFilters = ({
           value={selectedCategory} 
           onChange={(e) => setSelectedCategory(e.target.value)}
           className="filter-select"
+          id='category-filter'
         >
           <option value="">Todas las categorías</option>
           {categories.map(category => (
-            <option key={category} value={category}>
+            <option key={category} value={category} >
               {category.charAt(0).toUpperCase() + category.slice(1)}
             </option>
           ))}
@@ -67,21 +68,20 @@ const ProductFilters = ({
       </div>
       
       {/* Filtro por talle (solo si aplica según la categoría) */}
-      {showSizeFilter && (
-        <div className="filter-section">
-          <h4>Talle</h4>
-          <select 
-            value={selectedSize} 
-            onChange={(e) => setSelectedSize(e.target.value)}
-            className="filter-select"
-          >
-            <option value="">Todos los talles</option>
-            {sizeOptions.map(size => (
-              <option key={size} value={size}>{size}</option>
-            ))}
-          </select>
-        </div>
-      )}
+      <div className={`filter-section ${!showSizeFilter ? 'hidden-filter' : ''}`}>
+        <h4>Talle</h4>
+        <select 
+          value={selectedSize} 
+          onChange={(e) => setSelectedSize(e.target.value)}
+          className="filter-select"
+          id='size-filter'
+        >
+          <option value="">Todos los talles</option>
+          {sizeOptions.map(size => (
+            <option key={size} value={size}>{size}</option>
+          ))}
+        </select>
+      </div>
       
       {/* Botón para limpiar filtros */}
       <button onClick={clearFilters} className="clear-filters-btn">

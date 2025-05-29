@@ -37,7 +37,13 @@ const Item = ({ id, title, price, pictureUrl, category, stock = 10 }) => {
   return (
     <div className="item-card">
       <div className="card-img-container">
-        <img src={pictureUrl} className="card-img-top product-image" alt={title} />
+        <img 
+          src={pictureUrl} 
+          className="card-img-top product-image" 
+          alt={title}
+          width="300" // Added width attribute
+          height="300" // Added height attribute
+        />
       </div>
       <div className="item-info">
         <h3 className="item-title">{title}</h3>
